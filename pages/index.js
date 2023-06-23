@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import ArtPieces from "../components/ArtPieces/index.js";
+import Spotlight from "../components/Spotlight/index.js";
 
 const fetcher = async (URL) => {
   const res = await fetch(URL);
@@ -29,6 +30,7 @@ export default function HomePage() {
   return (
     <div>
       <h1>Art Gallery App</h1>
+      <Spotlight pieces={data} />
       <ArtPieces pieces={data} />
     </div>
   );

@@ -1,5 +1,6 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
+import Layout from "../components/Layout/index.js";
 
 const fetcher = async (URL) => {
   const res = await fetch(URL);
@@ -29,7 +30,8 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <Component {...pageProps} pieces={data} />
+      <Layout/>
     </>
   );
 }

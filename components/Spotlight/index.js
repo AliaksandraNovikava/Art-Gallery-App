@@ -6,7 +6,7 @@ export default function Spotlight({ pieces }) {
 
   return (
     <>
-      <Image src={randomPiece.imageSource} alt={randomPiece.name} width={300} />
+      <Image src={randomPiece.imageSource} alt={randomPiece.name} height={300} width={300} />
       <p role="title">
         {randomPiece.name}, {randomPiece.artist}
       </p>

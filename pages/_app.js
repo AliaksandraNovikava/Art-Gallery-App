@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "../components/Layout/index.js";
+import { useState } from "react";
 
 const fetcher = async (URL) => {
   const res = await fetch(URL);
@@ -16,6 +17,8 @@ const fetcher = async (URL) => {
 };
 
 export default function App({ Component, pageProps }) {
+  const [artPiecesInfo, setArtPiecesInfo] = useState();
+
   const { data, error, isLoading } = useSWR(
     "https://example-apis.vercel.app/api/art",
     fetcher
@@ -30,10 +33,8 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} pieces={data} />
-      <Layout/>
+      <Component {...pageProps} pieces={data} artPiecesInfo={artPiecesInfo} />
+      <Layout />
     </>
   );
 }
-
-
